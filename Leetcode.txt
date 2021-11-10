@@ -1,0 +1,63 @@
+public class Program {
+    public boolean isPalindrome(int x) {
+        if(x<0) {
+            return false;
+        }
+        else {
+            int palindrome = x;
+            int reverse = 0;
+            while (palindrome != 0) {
+                int remainder = palindrome % 10;
+                reverse = reverse * 10 + remainder;
+                palindrome = palindrome / 10;
+            }
+            return x == reverse;
+        }
+    }
+    public static int divide(int dividend, int divisor) {
+        if (divisor == -1 && dividend == Integer.MIN_VALUE) {
+            return Integer.MAX_VALUE;
+        }
+        long a;
+        a=dividend/divisor;
+        return (int)(a);
+    }
+
+    public static int reverse(int x) {
+        long palindrome = x;
+        long reverse = 0;
+        while (palindrome != 0) {
+            long remainder = palindrome % 10;
+//            System.out.println(reverse*10+remainder);
+            if(reverse*10+remainder>Integer.MAX_VALUE){
+                return 0;
+            }
+            else if(reverse*10+remainder<Integer.MIN_VALUE){
+                return 0;
+            }
+            else{
+                reverse = reverse * 10 + remainder;
+            }
+            palindrome = palindrome / 10;
+        }
+        return (int)reverse;
+    }
+
+    public static int mySqrt(int x) {
+        if(x==0||x==1){
+            return x;
+        }
+        int i=1;
+        while(x/i>=i){
+            i++;
+        }
+        return i-1;
+    }
+
+    public static void main(String[] args) {
+//        System.out.println(divide(-2147483648,-1));
+        System.out.println(reverse(-2147483648));
+//        System.out.println(mySqrt(8));
+    }
+
+}
